@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      /* Desktop */
+      /*
+        only - It is a qualifier (values: only, not)
+        screen - It is a mediaType
+      */
+      @media only screen and (min-width: 800px) {
+        .tablet-content {
+          display: none;
+        }
+        .mobile-content {
+          display: none;
+        }
+      }
+
+      /* Tablet */
+      @media only screen and (min-width: 480) and (max-width: 800px) {
+        .desktop-content {
+          display: none;
+        }
+        .mobile-content {
+          display: none;
+        }
+      }
+
+      /* Mobile */
+      @media only screen and (max-width: 480) {
+        .desktop-content {
+          display: none;
+        }
+        .tablet-content {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="desktop-content">Desktop</div>
+    <div class="tablet-content">Tablet</div>
+    <div class="mobile-content">Mobile</div>
+  </body>
+</html>

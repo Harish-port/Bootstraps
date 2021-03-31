@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  frontend:
+    image:
+    build: ./dir
+    # build:
+    #   context: ./dir 
+    #   dockerfile: Dockerfile-alternate
+    #   args:
+    #     buildno: 1
+    
+
+volumes:
+
+networks:
