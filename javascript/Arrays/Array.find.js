@@ -21,6 +21,6 @@ const items = [
     
     const foundItem = items.find((item)=>{
         return item.name="Bike"
-    })
+    })  
     
     console.log(foundItem);
