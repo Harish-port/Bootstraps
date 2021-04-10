@@ -19,8 +19,6 @@ const items = [
     { name: "Keyboard", price: 24 },
     { name: "Laptop", price: 1000 },
   ];
-  
-
   const hasInexpensiveItems = items.some((item)=>{
     return item.price <= 100
 })
