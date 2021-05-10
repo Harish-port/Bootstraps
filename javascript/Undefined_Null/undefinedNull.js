@@ -10,5 +10,5 @@ console.log(typeof undefined);///undefined
 console.log(undefined === null);///false
 console.log( undefined == null);///true
 
-/// === is called as strict equality
+// === is called as strict equality
 /// == is called abstract equality
