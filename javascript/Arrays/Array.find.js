@@ -24,3 +24,4 @@ const items = [
     })  
     
     console.log(foundItem);
+    // /* Output will be an object with name "Bike" -- {name: 'Bike', price: 100} 
