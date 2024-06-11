@@ -26,10 +26,16 @@
  * @return {number}
  */
 let prices = [7, 1, 5, 3, 6, 4];
-
+///Profit   
 var maxProfit = function (prices) {
+    //Keep track of profit
+    //Go throught the array and see if there is profit
+    //if there is no profit,continue
+    //if there is profit,
+    //track our profit
     
+    //return profit
 };
-//Space  = 0(1)
-//COmplexiry = O(N)^2
+//Space complexity   = 0(1)
+//TimeCOmplexiry = O(N)^2
 console.log(maxProfit(maxProfit(prices)));
