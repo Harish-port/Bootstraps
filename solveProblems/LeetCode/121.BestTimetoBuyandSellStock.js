@@ -21,6 +21,25 @@
 // 1 <= prices.length <= 105
 // 0 <= prices[i] <= 104
 
+// /**
+//  * @param {number[]} prices
+//  * @return {number}
+//  */
+// let prices = [7, 1, 5, 3, 6, 4];
+// ///Profit   
+// var maxProfit = function (prices) {
+//     //Keep track of profit
+//     //Go throught the array and see if there is profit
+//     //if there is no profit,continue
+//     //if there is profit,
+//     //track our profit
+    
+//     //return profit
+// };
+// //Space complexity   = 0(1)
+// //TimeCOmplexiry = O(N)^2
+// console.log(maxProfit(maxProfit(prices)));
+
 /**
  * @param {number[]} prices
  * @return {number}
