@@ -52,9 +52,9 @@ var maxProfit = function (prices) {
     //if there is no profit,continue
     //if there is profit,
     //track our profit
-    
     //return profit
 };
 //Space complexity   = 0(1)
 //TimeCOmplexiry = O(N)^2
+console.log(maxProfit(maxProfit(prices)));
 console.log(maxProfit(maxProfit(prices)));
