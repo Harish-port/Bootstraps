@@ -26,14 +26,14 @@
 //  * @return {number}
 //  */
 // let prices = [7, 1, 5, 3, 6, 4];
-// ///Profit   
+// ///Profit
 // var maxProfit = function (prices) {
 //     //Keep track of profit
 //     //Go throught the array and see if there is profit
 //     //if there is no profit,continue
 //     //if there is profit,
 //     //track our profit
-    
+
 //     //return profit
 // };
 // //Space complexity   = 0(1)
@@ -45,16 +45,33 @@
  * @return {number}
  */
 let prices = [7, 1, 5, 3, 6, 4];
-///Profit   
+///Profit
 var maxProfit = function (prices) {
-    //Keep track of profit
+  //Keep track of profit
+  let buyPrice = prices[0]; // 1
+  let profit = 0; // 4 
+  for (let i = 0; i < prices.length - 1; i++) {
     //Go throught the array and see if there is profit
-    //if there is no profit,continue
-    //if there is profit,
-    //track our profit
-    //return profit
+    let tempProfit = prices[i + 1] - prices[i]; // 4
+
+    if (tempProfit > 0) {
+      if (prices[i] < buyPrice) {
+        buyPrice = prices[i];
+      }
+      if (prices[i + 1] - buyPrice > profit) {
+        profit = prices[i + 1] - buyPrice;
+      }
+    }
+  }
+  return profit;
+  //if there is no profit,continue
+  //if there is profit,
+  // check if my cuurent purchase price is less than my old one
+  // replace my starting price
+  //track our profit
+  //computed profit > profit
+  //return profit
 };
 //Space complexity   = 0(1)
 //TimeCOmplexiry = O(N)^2
-console.log(maxProfit(maxProfit(prices)));
-console.log(maxProfit(maxProfit(prices)));
+console.log(maxProfit(prices));
