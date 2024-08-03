@@ -13,5 +13,8 @@ Benifits of Polyfills
 
 1. Better User Experience - Polyfills allow developers to improve user experience by adding features and capabilities even in older browsers.
 
-2. 
+2. Reduced development time - By enabling developers to use new capabilities without having to write specific code for older browsers, polyfills can save developers a significant amount of effort.
+
+3. Cost- effective : Using polyfills saves money by preventing the need to design specialised solutions for every browers and mobile devices
+
 
