@@ -29,33 +29,32 @@
 // C: O(N), Cannot use division
 
 let nums = [1, 2, 3, 4];
-// leftProduct = [1, 1, 2, 6];
-// leftProduct = [24, 12, 4, 1];
-// solutuinArray = [24, 12, 8, 6];
-// var productExceptSelf = function (nums) {
-//   let leftProduct = [];
-//   let rightProduct = [];
-//   let solution = [];
-//   for (let i = 0; i < nums.length; i++)
-//     if (leftProduct.length === 0) {
-//       leftProduct.push(1);
-//     } else {
-//       leftProduct.push(leftProduct[i - 1] * nums[i - 1]);
-//     }
+leftProduct = [1, 1, 2, 6];
+leftProduct = [24, 12, 4, 1];
+solutuinArray = [24, 12, 8, 6];
+var productExceptSelf = function (nums) {
+  let leftProduct = [];
+  let rightProduct = [];
+  let solution = [];
+  for (let i = 0; i < nums.length; i++)
+    if (leftProduct.length === 0) {
+      leftProduct.push(1);
+    } else {
+      leftProduct.push(leftProduct[i - 1] * nums[i - 1]);
+    }
 
-//   for (let i = nums.length - 1; i > -1; i--) {
-//     if (rightProduct.length === 0) {
-//       rightProduct.push(1);
-//     } else {
-//       rightProduct.unshift(rightProduct[0] * nums[i + 1]);
-//     }
-//   }
-//   for (let i = 0; i < leftProduct.length; i++) {
-//     solution.push(leftProduct[i] * rightProduct[i]);
-//   }
-//   return solution;
-// };
-
+  for (let i = nums.length - 1; i > -1; i--) {
+    if (rightProduct.length === 0) {
+      rightProduct.push(1);
+    } else {
+      rightProduct.unshift(rightProduct[0] * nums[i + 1]);
+    }
+  }
+  for (let i = 0; i < leftProduct.length; i++) {
+    solution.push(leftProduct[i] * rightProduct[i]);
+  }
+  return solution;
+};
 
 ///Optimized solution >>>>>>
 
@@ -64,13 +63,12 @@ var productExceptSelf = function (nums) {
   let carry = 1;
   // Array to return all the product values
   const output = Array(nums.length).fill(1);
-  console.log(output);
-  
   // Add products to output array starting at the front
   for (let i = 0; i < nums.length; i++) {
     output[i] *= carry;
     carry *= nums[i];
   }
+
   // Reset carry
   carry = 1;
   // Add products to output array starting at the back
@@ -80,4 +78,4 @@ var productExceptSelf = function (nums) {
   }
   return output;
 };
-productExceptSelf(nums);
+console.log(productExceptSelf(nums));
