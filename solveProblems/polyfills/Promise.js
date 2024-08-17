@@ -25,7 +25,7 @@ function PromisePolyFill(executor) {
     value = val;
     if (typeof onResolve === "function") {
       onResolve(value);
-      called = true;
+      isCalled = true;
     }
   }
   function reject(val) {
@@ -33,13 +33,13 @@ function PromisePolyFill(executor) {
     value = val;
     if (typeof onResolve === "function") {
       onReject(value);
-      called = true;
+      isCalled = true;
     }
   }
   this.then = function (callback) {
     onResolve = callback;
     if (isFullfilled && !isCalled) {
-      called = true;
+      isCalled = true;
       onResolve(value);
     }
     return this;
@@ -47,7 +47,7 @@ function PromisePolyFill(executor) {
   this.catch = function (callback) {
     onReject = callback;
     if (isFullfilled && !isCalled) {
-      called = true;
+      isCalled = true;
       onReject(value);
     }
     return this;
