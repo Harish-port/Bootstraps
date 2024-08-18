@@ -43,7 +43,6 @@ Promise.allPolyFill = (promises) => {
     });
   });
 };
-
 Promise.allPolyFill([
   importantAction("youtube channel"),
   likeTheVideo("JS interview Questions"),
