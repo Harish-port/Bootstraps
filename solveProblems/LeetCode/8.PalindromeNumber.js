@@ -34,6 +34,6 @@ var isPalindrome = function (x) {
 // Follow up: Could you solve it without converting the integer to a string?
 var isPalindrome2 = function (x) {
   if (x < 0) return false;
-  
+   
 };
 console.log(isPalindrome(123));
