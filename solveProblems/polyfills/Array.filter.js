@@ -14,3 +14,6 @@ const filterRes = arr.myFilter((ele) => {
   return ele < 5;
 });
 console.log(filterRes, "filterRes");
+// Note:
+
+1.
