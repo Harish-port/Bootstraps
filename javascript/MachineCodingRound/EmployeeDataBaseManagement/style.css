@@ -1,0 +1,55 @@
+.container {
+  padding: 10px;
+}
+.container .heading {
+  display: flex;
+  align-items: center;
+}
+.heading button {
+  height: auto;
+  margin-left: auto;
+  padding: 5px;
+  cursor: pointer;
+}
+.employee-section {
+  display: flex;
+  border: 1px solid black;
+  height: 350px;
+}
+h4 {
+  text-align: center;
+  margin: 0;
+}
+.employee-list {
+  padding: 10px;
+  width: 30%;
+  border-right-style: solid;
+  border-right-width: thin;
+}
+ul {
+  list-style-type: none;
+  padding: 5px;
+  overflow: auto;
+  margin: 0;
+  height: 280px;
+}
+
+.employee-li-list {
+  padding: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.employee-information-details{
+    text-align: center;
+}
+li:hover{
+    background-color: lightgray;
+}
+.selected{
+    background-color: lightgray;
+}
+.employee-information {
+  padding: 10px;
+  width: 70%;
+  height: 100%;
+}

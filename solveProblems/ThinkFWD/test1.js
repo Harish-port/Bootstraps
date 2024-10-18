@@ -1,9 +1,11 @@
-function PromisePolyFill(executor) {
+function PromisePolyfill(executor) {
   let onResolve,
     onReject,
     isFullfilled = false,
+    isRejected = false,
     isCalled = false,
     value;
+
   function resolve(val) {
     isFullfilled = true;
     value = val;
@@ -12,9 +14,7 @@ function PromisePolyFill(executor) {
       onResolve(val);
     }
   }
-  function reject(val) {
-    onReject(val);
-  }
+  function reject(val) {}
   this.then = function (callback) {
     onResolve = callback;
     if (isFullfilled && !isCalled) {
@@ -23,20 +23,22 @@ function PromisePolyFill(executor) {
     }
     return this;
   };
+
   this.catch = function (callback) {
     onReject = callback;
     return this;
   };
+
   executor(resolve, reject);
 }
 
-const examplePromise = new PromisePolyFill((resolve, reject) => {
+const examplePoyfill = new PromisePolyfill((resolve, reject) => {
   setTimeout(() => {
     resolve(2);
   }, 1000);
 });
 
-examplePromise
+examplePoyfill
   .then((res) => {
     console.log(res);
   })
