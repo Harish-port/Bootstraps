@@ -22,22 +22,63 @@
           <h4>Employee Infomation</h4>
           <hr />
           <div class="employee-information-details"></div>
+          <button class="editEmployee">Edit Employee</button>
         </div>
       </div>
       <div class="add-employee-modal">
         <form class="add-employee-create">
-          Add a new employee
+          <div class="form-heading"></div>
           <div class="employee-names">
-            <input type="text" name="firstName" required placeholder="First Name" />
-            <input type="text" name="lastName" required placeholder="Last Name" />
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              required
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              required
+              placeholder="Last Name"
+            />
           </div>
           <!-- <input type="text" name="imageUrl" placeholder="img url optional" /> -->
-          <input type="password" required name="email"  placeholder="Email" />
-          <input type="number" required name="contactNumber" placeholder="Contact" />
-          <input type="number" required name="salary" placeholder="Salary" />
-          <input type="text" required name="address" placeholder="Address" />
-          <input type="date" required name="dob" placeholder="Date" />
-          <input type="submit" class="add-employee-create-submit" value="Submit" />
+          <input
+            type="email"
+            required
+            name="email"
+            id="email"
+            placeholder="Email"
+          />
+          <input
+            type="number"
+            required
+            name="contactNumber"
+            id="contactNumber"
+            placeholder="Contact"
+          />
+          <input
+            type="number"
+            required
+            name="salary"
+            id="salary"
+            placeholder="Salary"
+          />
+          <input
+            type="text"
+            required
+            name="address"
+            id="address"
+            placeholder="Address"
+          />
+          <input type="date" required name="dob" id="dob" placeholder="Date" />
+          <input
+            type="submit"
+            class="add-employee-create-submit"
+            value="Submit"
+          />
         </form>
       </div>
     </div>

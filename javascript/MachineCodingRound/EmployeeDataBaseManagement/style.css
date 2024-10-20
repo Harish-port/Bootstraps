@@ -49,6 +49,7 @@ li:hover {
   background-color: lightgray;
 }
 .employee-information {
+  position: relative;
   padding: 10px;
   width: 70%;
   height: 100%;
@@ -69,9 +70,26 @@ li:hover {
   justify-content: center;
   align-items: center;
 }
+.employe-info {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+.editEmployee {
+  position: absolute;
+  height: 30px;
+  right: 0;
+  top: 50px;
+  padding: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+li {
+  display: flex;
+}
 .add-employee-create {
   width: 480px;
-  height: 370px;
+  height: 320px;
   background-color: white;
   box-shadow: 0 0 50px grey;
   padding: 20px;
@@ -81,11 +99,19 @@ li:hover {
   flex-direction: column;
   gap: 15px;
 }
-
+.employeeDelete {
+  font-weight: bold;
+  cursor: pointer;
+  color: darkred;
+  margin-left: auto;
+}
 .add-employee-create {
   display: flex;
   flex-direction: column;
 
   border: 1px solid black;
   padding: 10px;
+}
+.add-employee-create-submit:hover{
+  cursor: pointer;
 }
