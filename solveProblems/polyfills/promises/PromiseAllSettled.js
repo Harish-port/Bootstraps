@@ -1,5 +1,5 @@
-const promise1 = Promise.resolve("promise 1 is fullfiled");
-const promise2 = Promise.reject("promise 2 is fullfiled");
+const promise1 = Promise.reject("promise 1 is fullfiled");
+const promise2 = Promise.resolve("promise 2 is fullfiled");
 const promise3 = new Promise((resolve) => {
   setTimeout(() => {
     resolve("priomise 3 is fillfiled");
@@ -33,7 +33,7 @@ Promise.allPolyfill = (promises) => {
   });
 };
 
-Promise.allPolyfill([promise1, promise2, promise3])
+Promise.race([promise1, promise2, promise3])
   .then((res) => {
     console.log(res, "result");
   })
