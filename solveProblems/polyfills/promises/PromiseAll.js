@@ -23,7 +23,7 @@ function shareTheVideo(video) {
     }, 1000);
   });
 }
-
+// loop through each promises and resolve them and if any error reject them
 Promise.allPolyFill = (promises) => {
   return new Promise((resolve, reject) => {
     const results = [];
