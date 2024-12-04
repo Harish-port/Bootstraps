@@ -23,10 +23,8 @@ Promise.customRace([promise1, promise2, promise3])
   .then((result) => console.log("Resolved with:", result))
   .catch((error) => console.error("Rejected with:", error));
 
-//     The output should not be Resolved with: first in this case because the custom implementation of Promise.customRace resolves or rejects based on whichever promise settles first.
-
+//The output should not be Resolved with: first in this case because the custom implementation of Promise.customRace resolves or rejects based on whichever promise settles first.
 // In your example:
-
 // promise3 rejects after 200ms with "error".
 // promise2 resolves after 300ms with "second".
 // promise1 resolves after 500ms with "first".
