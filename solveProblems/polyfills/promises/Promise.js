@@ -1,25 +1,12 @@
-// Promise in javascript
-// In asynchronous operation .then() will be called first
-
-const examplePromise = new PromisePolyFill((resolve, reject) => {
-  setTimeout(() => {
-    resolve(2);
-  }, 1000);
-});
-
-examplePromise
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => console.error(err));
-
-//Polyfill for promise
+// Polyfill for Promise
 function PromisePolyFill(executor) {
   let onResolve,
     onReject,
     isFullfilled = false,
+    isRejected = false,
     isCalled = false,
     value;
+
   function resolve(val) {
     isFullfilled = true;
     value = val;
@@ -28,14 +15,16 @@ function PromisePolyFill(executor) {
       isCalled = true;
     }
   }
+
   function reject(val) {
     isRejected = true;
     value = val;
-    if (typeof onResolve === "function") {
+    if (typeof onReject === "function") { // FIXED: Check onReject here
       onReject(value);
       isCalled = true;
     }
   }
+
   this.then = function (callback) {
     onResolve = callback;
     if (isFullfilled && !isCalled) {
@@ -44,17 +33,31 @@ function PromisePolyFill(executor) {
     }
     return this;
   };
+
   this.catch = function (callback) {
     onReject = callback;
-    if (isFullfilled && !isCalled) {
+    if (isRejected && !isCalled) {
       isCalled = true;
       onReject(value);
     }
     return this;
   };
+
   try {
     executor(resolve, reject);
   } catch (error) {
     reject(error);
   }
 }
+const examplePromise = new PromisePolyFill((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Error occurred!");
+  }, 1000);
+});
+
+examplePromise
+  .then((res) => {
+    console.log("Resolved:", res);
+  })
+  .catch((err) => console.error("Rejected:", err));
+
