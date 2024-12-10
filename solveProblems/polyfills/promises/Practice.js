@@ -1,57 +1,39 @@
-const examplePromise = new customPromisePolyfill((resolve, reject) => {
-    setTimeout(() => {
-      reject("Error occurred!");
-    }, 1000);
-  });
-  
-  examplePromise
-    .then((res) => {
-      console.log("Resolved:", res);
-    })
-    .catch((err) => console.error("Rejected:", err));
-  
+const promise1 = new Promise((resolve, reject) =>
+  setTimeout(reject, 500, "first")
+);
+const promise2 = new Promise((resolve, reject) =>
+  setTimeout(reject, 300, "second")
+);
+const promise3 = new Promise((resolve, reject) =>
+  setTimeout(resolve, 200, "error")
+);
 
-function customPromisePolyfill(executor) {
-  let onResolve,
-    onReject,
-    isFullfilled = false,
-    isRejected = false,
-    isCalled = false,
-    value;
-  this.then = function (callback) {
-    onResolve = callback;
-    if (isFullfilled && !isCalled) {
-      called = true;
-      onResolve(value);
-    }
-    return this;
+if (!Promise.customPromiseAll) {
+  Promise.customPromiseAll = function (promies) {
+    return new Promise((resolve, reject) => {
+      let results = [];
+      if (!promies.length) {
+        resolve(results);
+        return;
+      }
+      let pending = promies.length;
+      promies.forEach((prom,idx) => {
+        Promise.resolve(prom).then((res) => {
+          results[idx] = res;
+          pending--;
+          if (promies.length === 0) {
+            resolve(results);
+            return;
+          }
+        }, reject);
+      });
+    });
   };
-
-  this.catch = function (callback) {
-    onReject = callback;
-    if (isRejected && !isCalled) {
-      called = true;
-      onReject(value);
-    }
-    return this;
-  };
-  function resolve(val) {
-    isFullfilled = true;
-    if (typeof onResolve === "function") {
-      isCalled = true;
-      onResolve(val);
-    }
-  }
-  function reject(val) {
-    isRejected = val;
-    if (typeof onReject === "function") {
-      isCalled = true;
-      onReject(val);
-    }
-  }
-  try {
-    executor(resolve, reject);
-  } catch (error) {
-    reject(error);
-  }
 }
+Promise.customPromiseAll([promise1, promise2, promise3])
+  .then((res) => {
+    console.log(res, "result");
+  })
+  .catch((error) => {
+    console.log(error);
+  });

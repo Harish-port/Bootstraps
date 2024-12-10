@@ -1,7 +1,7 @@
 const promise1 = new Promise((resolve, reject) => setTimeout(reject, 500, "first"));
 const promise2 = new Promise((resolve, reject) => setTimeout(reject, 300, "second"));
 const promise3 = new Promise((resolve, reject) =>
-  setTimeout(reject, 200, "error")
+  setTimeout(resolve, 200, "error")
 );
 
 if (!Promise.customAny) {
