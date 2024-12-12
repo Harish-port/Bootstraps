@@ -19,7 +19,7 @@ const promise3 = new Promise((resolve, reject) =>
   setTimeout(reject, 200, "error")
 );
 
-Promise.customRace([promise1, promise2, promise3])
+Promise.race([])
   .then((result) => console.log("Resolved with:", result))
   .catch((error) => console.error("Rejected with:", error));
 

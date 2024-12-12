@@ -2,7 +2,7 @@
 
 const arr = [1, 2, 3, 4, 5];
 
-// Array.map((num,index,array)=> {})         /// Syntax of map()
+// Array.map((currentElement,index,Actualarray)=> {})         /// Syntax of map()
 // where num is the current Element
 
 Array.prototype.myMap = function (cb) {

@@ -5,32 +5,19 @@ const promise2 = new Promise((resolve, reject) =>
   setTimeout(reject, 300, "second")
 );
 const promise3 = new Promise((resolve, reject) =>
-  setTimeout(resolve, 200, "error")
+  setTimeout(reject, 200, "error")
 );
 
-if (!Promise.customPromiseAll) {
-  Promise.customPromiseAll = function (promies) {
+if (!Promise.customPromiseAny) {
+  Promise.customPromiseAny = function (promises) {
     return new Promise((resolve, reject) => {
-      let results = [];
-      if (!promies.length) {
-        resolve(results);
-        return;
-      }
-      let pending = promies.length;
-      promies.forEach((prom,idx) => {
-        Promise.resolve(prom).then((res) => {
-          results[idx] = res;
-          pending--;
-          if (promies.length === 0) {
-            resolve(results);
-            return;
-          }
-        }, reject);
+      promises.forEach((promise) => {
+        Promise.resolve(promise).then(resolve, reject).catch(reject);
       });
     });
   };
 }
-Promise.customPromiseAll([promise1, promise2, promise3])
+Promise.customPromiseAny([promise1, promise2, promise3])
   .then((res) => {
     console.log(res, "result");
   })
