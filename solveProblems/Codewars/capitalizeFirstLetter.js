@@ -1,18 +1,11 @@
-function capitalize(input) {
-  var CapitalizeWords = input[0].toUpperCase();
-  console.log(CapitalizeWords);
-  for (var i = 1; i <= input.length - 1; i++) {
-    let currentCharacter,
-      previousCharacter = input[i - 1];
-    if (previousCharacter && previousCharacter == " ") {
-      currentCharacter = input[i].toUpperCase();
-    } else {
-      currentCharacter = input[i];
-    }
-    CapitalizeWords = CapitalizeWords + currentCharacter;
-  }
-  return CapitalizeWords;
+function capitalizeWords(sentence) {
+  if (!sentence) return ""; // Handle empty strings
+  return sentence
+    .split(" ") // Split the sentence into words
+    .map(word => word[0]?.toUpperCase() + word.slice(1)) // Capitalize each word
+    .join(" "); // Join the words back into a sentence
 }
-capitalize("this is the first letter");
 
-console.log(capitalize("this is the first letter"));
+capitalizeWords("this is the first letter");
+
+console.log(capitalizeWords("this is the first letter"));
