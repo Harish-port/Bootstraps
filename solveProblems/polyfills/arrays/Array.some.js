@@ -10,11 +10,11 @@
 
 // The some() method does not change the original array.
 
-const arr = [5, 23, 4, 5, 6, 7,  890];
+const arr = [ 23, 4, 5, 6, 7, 5, 890];
 
 const res = arr.some(greaterThanFour);
 function greaterThanFour(item) {
-  return item < 2;
+  return item <= 5;
 }
 
 console.log(res);
