@@ -21,5 +21,7 @@ Array.prototype.myFlat = function (depth = 1) {
   flatterner(this, depth);
   return flattenedArray;
 };
+
 const res = arr.myFlat(1);
+
 console.log(res);
