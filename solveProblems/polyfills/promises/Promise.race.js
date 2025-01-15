@@ -1,17 +1,21 @@
-if (typeof Promise.customRace !== "function") {
-  Promise.customRace = function (promises) {
-    return new Promise((resolve, reject) => {
-      if (!Array.isArray(promises)) {
-        throw new TypeError(
-          "The arguments to customRace must be iterable, such as an array."
-        );
-      }
-      for (const promise of promises) {
-        Promise.resolve(promise).then(resolve, reject);
-      }
+Promise.racePolyFill = (promises) => {
+  return new Promise((resolve, reject) => {
+    if (!Array.isArray(promises)) {
+      return reject(new TypeError("Input must be an array of promises"));
+    }
+
+    promises.forEach((promise) => {
+      Promise.resolve(promise)
+        .then(resolve) // Resolve as soon as the first promise resolves
+        .catch(reject); // Reject as soon as the first promise rejects
     });
-  };
-}
+
+    // Handle case when promises array is empty
+    if (promises.length === 0) {
+      return; // No resolution or rejection if array is empty
+    }
+  });
+};
 
 const promise1 = new Promise((resolve) => setTimeout(resolve, 500, "first"));
 const promise2 = new Promise((resolve) => setTimeout(resolve, 300, "second"));
@@ -19,7 +23,7 @@ const promise3 = new Promise((resolve, reject) =>
   setTimeout(reject, 200, "error")
 );
 
-Promise.race([])
+Promise.racePolyFill([])
   .then((result) => console.log("Resolved with:", result))
   .catch((error) => console.error("Rejected with:", error));
 

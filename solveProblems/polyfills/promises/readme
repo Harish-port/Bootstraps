@@ -1,0 +1,25 @@
+PromiseAll
+
+1. The PromiseAll takes iterable of promises as inputy and return a single promise.
+2. It waits for all promises to resolve or for any to reject.
+3. It reject immediately with value of the first promise that rejects,discarding the results of all the other promises
+
+Implementation to remember
+
+1. basically return a new promise and create and empty array to push the results of the promise
+2. loop through the array and resolve each promise and decrement the pending that is the length of the promises
+
+PromiseAllSettled
+
+1. 1. The PromiseAll takes iterable of promises as inputy and return an array of object where each object representing each promise.
+2. with each object having status key and reason key where status value would be either resolved or rejected and reason key will be the reason for rejection
+
+Implementation to remember
+
+1. since it return an array of objects push the each object to the array.
+2. and decrement the pending in the finally method and check if empty array then resolve it with the empty array
+
+Promise.race
+
+1. It takes iterable of promises and returns the first rejected or resolved promise[returns a single value]
+

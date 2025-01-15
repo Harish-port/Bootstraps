@@ -25,23 +25,9 @@ function shareTheVideo(video) {
 }
 // loop through each promises and resolve them and if any error reject them
 Promise.allPolyFill = (promises) => {
-  return new Promise((resolve, reject) => {
-    const results = [];
-    if (!promises.length) {
-      resolve(results);
-      return;
-    }
-    let pending = promises.length;
-    promises.forEach((promise, idx) => {
-      Promise.resolve(promise).then((res) => {
-        results[idx] = res;
-        pending--;
-        if (pending === 0) {
-          resolve(results);
-        }
-      }, reject);
-    });
-  });
+return new Promise((resolve,reject)=>{
+  
+})
 };
 Promise.allPolyFill([
   importantAction("youtube channel"),
