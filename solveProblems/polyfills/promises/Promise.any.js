@@ -7,7 +7,7 @@ const promise3 = new Promise((resolve, reject) =>
 if (!Promise.customAny) {
   Promise.customAny = function (promises) {
     return new Promise((resolve, reject) => {
-      let errors = [];
+      let errors = [];  
       let rejectedCount = 0;
       let totalPromises = promises.length;
       if (totalPromises === 0) {

@@ -22,25 +22,20 @@ function userDetails(employee) {
 
 Promise.allPolyFill = (promises) => {
   return new Promise((resolve, reject) => {
-    const results = [];
-    if (!promises.length) {
-      resolve(results);
-      return;
+    let errors = [];
+    let rejectedCount = 0;
+    let totalPromises = promises.length;
+    if (totalPromises.length === 0) {
+      return reject(new AggregateError("All promises were rejected"));
     }
-    let pending = promises.length;
     promises.forEach((promise, idx) => {
       Promise.resolve(promise)
-        .then((value) => {
-          results[idx] = { status: "fullfilled", value };
-        })
-        .catch((reason) => {
-          results[idx] = { status: "rejected", reason };
-        })
-        .finally(() => {
-          pending--;
-          if (pending === 0) {
-            resolve(results);
-            return;
+        .then(resolve)
+        .catch((error) => {
+          errors[idx] = error;
+          rejectedCount++;
+          if (rejectedCount === totalPromises) {
+            return reject(new AggregateError("All promises were rejected"));
           }
         });
     });
