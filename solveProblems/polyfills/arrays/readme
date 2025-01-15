@@ -1,0 +1,7 @@
+for filter and map method we are gonna return a new array 
+1. for filter check for if condition and push the arrayELement to empty array and return
+2. for map just push the cb to the empty array and return 
+3. forEach method just the cb 
+
+
+4. array.some function <<<<<

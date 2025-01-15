@@ -3,19 +3,17 @@ let car1 = {
   color: "Red",
   company: "Ferrari",
 };
-
 function purchaseCar(currency, price) {
-  console.log(
-    `I have purchased ${this.color} - ${this.company} car for ${currency} ${price}`
-  );
+  console.log(`i have purchased ${this.color} ferrari for ${currency}`);
 }
-
-Function.prototype.MyCall = function (context, args) {
+Function.prototype.myCallPolyFill = function (context = {}, ...args) {
   if (typeof this !== "function") {
-    return new Error(this + "this is not callable");
+    throw new Error(this + "It is not callable");
   }
+ 
   context.fn = this;
-  context.fn(...args);
-};
+  return function(...newArgs){
+    return context.fn(...args,...newArgs)
+  }
 
-purchaseCar.MyCall(car1, 23, 3);
+};
