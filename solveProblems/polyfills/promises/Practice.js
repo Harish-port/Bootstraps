@@ -1,26 +1,45 @@
-const promise1 = new Promise((resolve, reject) =>
-  setTimeout(reject, 500, "first")
-);
-const promise2 = new Promise((resolve, reject) =>
-  setTimeout(reject, 300, "second")
-);
-const promise3 = new Promise((resolve, reject) =>
-  setTimeout(reject, 200, "error")
-);
+function PromisePolyfill(executor) {
+  let onResolve,
+    onReject,
+    isFullfilled = false,
+    isCalled,
+    value;
 
-if (!Promise.customPromiseAny) {
-  Promise.customPromiseAny = function (promises) {
-    return new Promise((resolve, reject) => {
-      promises.forEach((promise) => {
-        Promise.resolve(promise).then(resolve, reject).catch(reject);
-      });
-    });
+  function resolve(val) {
+    isFullfilled = true;
+    value = val;
+    if (typeof onResolve === "function") {
+      onResolve(val);
+      isCalled = true;
+    }
+  }
+  function reject(val) {
+    onReject(val);
+  }
+  this.then = function (callback) {
+    onResolve = callback;
+    if (isFullfilled && !isCalled) {
+      onResolve(value);
+    }
+    return this;
   };
+  this.catch = function (callback) {
+    onReject = callback;
+    return this;
+  };
+  executor(resolve, reject);
 }
-Promise.customPromiseAny([promise1, promise2, promise3])
+
+const examplePromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(2);
+  }, 1000);
+});
+
+examplePromise
   .then((res) => {
-    console.log(res, "result");
+    console.log(res, "response");
   })
-  .catch((error) => {
-    console.log(error);
+  .catch((err) => {
+    console.log(err);
   });
