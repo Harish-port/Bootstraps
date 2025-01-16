@@ -6,6 +6,8 @@
 // Order: Map maintains the order of its elements based on the insertion order.
 // Size Property: Map has a size property that returns the number of key-value pairs.
 // Methods: Map provides convenient methods for adding, removing, and iterating over its elements.
+// Problem:
+// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to the target.
 
 const twoSum = (nums, target) => {
   const memory = new Map();
@@ -18,7 +20,6 @@ const twoSum = (nums, target) => {
   }
   return [];
 };
-
 
 console.log(twoSum([1, 2, 3, 4, 2], 7));
 
@@ -60,3 +61,15 @@ console.log(twoSum([1, 2, 3, 4, 2], 7));
 // O(n), for the hash map to store up to
 // 𝑛
 // n elements.
+
+//Brute force approach
+
+function twoSum(nums, target) {
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let k = i + 1; k < nums.length; k++) {
+      if (nums[i] + nums[k] === target) {
+        return [i, k];
+      }
+    }
+  }
+}

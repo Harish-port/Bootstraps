@@ -1,8 +1,13 @@
-function missingNumber(nums) {
-  const n = numns.length;
-  const expectedSum = (n * (n + 1)) / 2;
-  const actualSum = nums.reduce((acc, num) => acc + num, 0);
-  return expectedSum - actualSum;
+function twoSum(nums, target) {
+  const memory = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+    if (memory.has(complement)) {
+      return [memory.get(complement), i];
+    }
+    memory.add(nums[i], i);
+  }
+  return [];
 }
 // Example usage
-console.log(missingNumber([0, 2, 4, 6, 8])); // Output: 3
+console.log(twoSum([1, 2, 3, 4, 2], 7));
