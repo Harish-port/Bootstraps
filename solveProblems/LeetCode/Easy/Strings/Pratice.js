@@ -1,18 +1,21 @@
-function validParentheses(s) {
-  let stack = [];
-  let bracketMap = {
-    ")": "(",
-    "}": "{",
-    "]": "[",
-  };
+function validParentheses(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+  let frequencyS = {};
+  let frequencyT = {};
+
   for (let char of s) {
-    if (char === "(" || char === "{" || char === "[") {
-      stack.push(char);
-    } else if (char === ")" || char === "}" || char === "]") {
-      if (stack.length === 0 || stack.pop() !== bracketMap[char]) {
-        return false;
-      }
+    frequencyS[char] = (frequencyS[char] || 0) + 1;
+  }
+
+  for (let char of t) {
+    frequencyT[char] = (frequencyT[char] || 0) + 1;
+  }
+  for (let char in frequencyS) {
+    if (frequencyS[char] !== frequencyT[char]) {
+      return false;
     }
   }
-  return stack.length === 0;
+  return true;
 }

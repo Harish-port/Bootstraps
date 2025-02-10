@@ -3,6 +3,7 @@
 // is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array.
 
 //  It works by repeatedly dividing the search range in half and discarding the half that doesn't contain the target.
+
 function binarySearch(nums, target) {
   // initialize the search range
   //   left represents the starting index of the search range.
@@ -10,11 +11,9 @@ function binarySearch(nums, target) {
   let left = 0;
   let right = nums.length - 1;
   // This loop runs as long as there are elements to search in the range (left ≤ right).
-
   while (left <= right) {
     // Calculate the middle index
     let mid = Math.floor(left + (right - left) / 2);
-
     if (nums[mid] === target) {
       return mid; // Found the target
     } else if (nums[mid] < target) {
@@ -23,7 +22,6 @@ function binarySearch(nums, target) {
       right = mid - 1; // Search the left half
     }
   }
-
   return -1; // Target not found
 }
 
