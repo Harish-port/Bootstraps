@@ -1,15 +1,11 @@
-function binarySearch(nums) {
-  let left = 0;
-  let right = nums.length - 1;
-  while (left <= right) {
-    let midIndex = left + (right - left) / 2;
-    if (nums[midIndex] === target) {
-      return midIndex;
-    } else if (nums[midIndex] < target) {
-      left = mid + 1;
-    } else if (nums[midIndex] > target) {
-      right = mid - 1;
+function towSum(nums) {
+  let memory = new Map();
+  for (let i = 0; i < nums.length - 1; i++) {
+    let compentent = target - nums[i];
+    if (memory.has(compentent)) {
+      return [memory.get(compentent), i];
     }
+    memory.set(nums[i], i);
   }
-  return -1;
+  return [];
 }
