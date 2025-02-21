@@ -23,12 +23,11 @@ class ListNode {
     this.next = next;
   }
 }
-function mergeTwoLists(list1, list2) {
-  let dummyHead = new ListNode(-1); // Step 1
-  let current = dummyHead; // Step 2
+function mergeTwoSortedLists(list1, list2) {
+  let dummyHead = new ListNode(-1); // Dummy node to simplify edge cases
+  let current = dummyHead;
 
   while (list1 !== null && list2 !== null) {
-    // Step 3
     if (list1.val < list2.val) {
       current.next = list1;
       list1 = list1.next;
@@ -39,7 +38,8 @@ function mergeTwoLists(list1, list2) {
     current = current.next;
   }
 
-  current.next = list1 !== null ? list1 : list2; // Step 5
+  // If one of the lists is not fully traversed, append it
+  current.next = list1 !== null ? list1 : list2;
 
-  return dummyHead.next; // Step 6
+  return dummyHead.next; // The merged list starts after dummyHead
 }
