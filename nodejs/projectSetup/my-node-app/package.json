@@ -1,0 +1,16 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "description": "/my-node-app\r │── /src                  # Main source code\r │   ├── /config           # Configuration files (e.g., environment variables)\r │   ├── /controllers      # Controller functions for handling requests\r │   ├── /models           # Database models (if using MongoDB, Sequelize, etc.)\r │   ├── /routes           # Route definitions (Express routers)\r │   ├── /middlewares      # Custom middleware functions\r │   ├── /services         # Business logic and external API calls\r │   ├── /utils            # Utility functions/helpers\r │   ├── /views            # Views (for server-side rendering, if applicable)\r │   ├── app.js            # Main application file (sets up Express, middleware)\r │   ├── server.js         # Server entry point (starts the Node.js server)\r │\r │── /public               # Static assets (CSS, JavaScript, images)\r │── /tests                # Unit and integration tests\r │── /logs                 # Log files\r │── /.env                 # Environment variables\r │── /.gitignore           # Git ignore file\r │── /package.json         # Node.js package manifest\r │── /package-lock.json    # Package lock file\r │── /README.md            # Project documentation",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
