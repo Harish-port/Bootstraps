@@ -15,6 +15,21 @@ router.post("/register", async (req, res) => {
     }
 
     // **Hash the password**
+    //     Generating a Salt:
+    // js
+    // Copy
+    // Edit
+    // const salt = await bcrypt.genSalt(10);
+    // bcrypt.genSalt(10) generates a salt (a random string) with a cost factor of 10.
+    // A higher cost factor makes hashing more secure but slower.
+    // Hashing the Password:
+
+    // js
+    // Copy
+    // Edit
+    // const hashedPassword = await bcrypt.hash(password, salt);
+    // bcrypt.hash(password, salt) hashes the password using the generated salt.
+    // This makes it more secure, as the hash is unique and not reversible.
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
