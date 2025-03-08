@@ -64,3 +64,12 @@
 // ✅ You have unstructured or semi-structured data
 // ✅ You need high scalability (Social Media, Big Data, IoT)
 // ✅ You work with rapidly changing requirements (Startups, Dynamic Apps)
+
+// 6. Advanced Queries
+
+// > Querying with Operators
+
+// MongoDB provides powerfull query operators for advanced filtering
+// Comparison operators
+// > $gt (greater than), $lt(less than), $gte(greater than or equal), $lte(less than or equal)
+// > $ne (not equal), $in (matches any value in an array), $nin(not in)

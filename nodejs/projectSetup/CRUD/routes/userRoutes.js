@@ -16,23 +16,26 @@ router.post("/add",async (req,res)=>{
             message:"User added successfully",
             savedUser
         });
-    } catch (s) {
+    } catch (error) {
         res.status(400).json({
             error:error.message
         })
     }
 });
+
 //get all users list
 
 router.get('/getUsers',async (req,res)=>{
     try{
-      const userList = await User.find();
+      const userList = await User.find(); // gets all users
+    //   const userList2 = await User.find({age:{$gte:30}}); // get only users whos age is greater than or equal to 30
       res.status(200).json(userList)
     }
     catch(error){
 res.status(500).json({error})
     }
 })
+
 // read user by id
 
 router.get('/:id',async (req,res)=>{
@@ -44,6 +47,7 @@ router.get('/:id',async (req,res)=>{
         res.status(500).json({error})
     }
 })
+
 //update user
 
 router.put("/:id",async (req,res)=>{

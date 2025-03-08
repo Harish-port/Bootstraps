@@ -7,7 +7,6 @@ const { User, RefreshToken } = require("../models/User");
 // User Registration
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;
-
   try {
     // **Check if the user already exists**
     const existingUser = await User.findOne({ username });
