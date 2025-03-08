@@ -7,7 +7,21 @@
 // . MongoDB is a NoSQL database (stores JSON-like data)
 // . Mongoose helps you define a structure (schema) for that data and interact with it in an organized way.
 
-//3. what is NoSQL and SQL database and what is the difference between them?
+//3. what is schema?
+// A Schema defines the structure of documents within a collection
+// MongoDB is a schema-less, meaning documents in a collection can have different fields and structure
+
+// 4. What is model?
+// A Model is a interface that allows you to interact with a specific collection in the database.It provides built in methods to perform CRUD Operations.
+
+// 5 What is MongoDB Compass?
+// MongoDB Compass is a GUI (Graphical User Interface) tool provided by MongoDB to visually interact with your database. It allows users to explore, query, and manage MongoDB data without using the command line.
+
+
+// 5. what is Collection in MongoDB>?
+// In MongoDB, a collection is a group of documents (records) that are stored together. It is similar to a table in relational databases, but unlike tables, collections do not enforce a strict schema. This means documents within the same collection can have different structures.
+
+//5. what is NoSQL and SQL database and what is the difference between them?
 
 // SQL(Structed Query Language) databases are relational and uses table to store data with predefined schemas
 // NoSQL(Not only SQL) databases are non-relational, offering flexible schemas and stores data in JSON-like document

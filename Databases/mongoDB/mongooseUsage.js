@@ -8,7 +8,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/mydatabase",{
 // A schema defines the structure of documents in a MongoDB collection
 
 // User Schema Example
-
+    
 const userSchema = new mongoose.Schema({
     name:String,
     age:Number,
