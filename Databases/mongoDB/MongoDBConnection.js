@@ -13,7 +13,7 @@
 //server.js
 require("dotenv").config();
 const express = require("express");
-const mongoose = require("mongoose");
+const mongoos = require("mongoose");
 const cors = require("cors")
 const app = express();
 

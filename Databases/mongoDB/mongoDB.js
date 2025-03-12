@@ -70,6 +70,50 @@
 // > Querying with Operators
 
 // MongoDB provides powerfull query operators for advanced filtering
-// Comparison operators
+// * Comparison operators
 // > $gt (greater than), $lt(less than), $gte(greater than or equal), $lte(less than or equal)
 // > $ne (not equal), $in (matches any value in an array), $nin(not in)
+
+// Example for it
+//   const userList = await User.find({age:{$gte:25,$lte:30}}); // get only users whos age is between 25 and 30
+//   const userList2 = await User.find({age:{$gte:30}}); // get only users whos age is greater than or equal to 30
+//   const products = await Products.find({price:{$in:[100,300,400]}}) // Products with price 100, 200, or 300
+
+// * Logical operators
+// > $and, $or, $not , $nor
+
+// const usersList = await User.find({$or:[{age:30},{city:"Bangalore"}]}) // Users above 30 OR in Bangalore
+
+// * Element Operators
+
+// $exists - check if a field exists
+// $type - check the data type
+
+// db.orders.find({ discount: { $exists: true } }) // Orders that have a discount field
+// db.users.find({ age: { $type: "number" } }) // Users whose age is a number
+
+// *Array Operators
+
+// $all, $size, $elemMatch
+// db.books.find({ genres: { $all: ["fiction", "mystery"] } }) // Books that have both genres
+// db.orders.find({ items: { $size: 2 } }) // Orders with exactly 2 items
+// db.users.find({ scores: { $elemMatch: { subject: "Math", score: { $gte: 90 } } } }) // Users with Math score ≥ 90
+
+
+// 7. what is Aggregation in MongoDB?
+// Aggregation is used to process and transform data.It allows you to perform operations like filtering, grouping,sorting,joining and performing calculations on large datasets.
+// 🔹 Aggregation Pipeline
+// MongoDB provides an aggregation pipeline that consists of multiple stages where each stage processes documents and passes the result to the next stage.
+
+// 🛠 Basic Aggregation Stages
+
+// Stage	Purpose
+// $match	 - Filters documents (like WHERE in SQL)
+// $group	-  Groups documents by a field and performs calculations (like GROUP BY in SQL)
+// $sort	- Sorts documents (like ORDER BY in SQL)
+// $project	- Selects specific fields (like SELECT in SQL)
+// $limit	 -Limits the number of documents
+// $skip	 -Skips a certain number of documents
+// $lookup	- Performs a join with another collection (like JOIN in SQL)
+
+
