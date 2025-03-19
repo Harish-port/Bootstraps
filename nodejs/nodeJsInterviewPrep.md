@@ -44,3 +44,25 @@ For CPU-Intensive tasks (eg. cryptography,file system operations), Node js offlo
 d). Asynchronous APIs 🔗
 Node.js provides built-in asynchronous APIs (e.g., fs.readFile(), http.get()).
 Uses callbacks, Promises, and async/await to handle async operations.
+
+7. What is buffer in node js?
+    -  Buffer is a **built-in global class** that **provides a way to work with binary data directly**. 
+    -  It represents a chunk of memory allocated outside of the V8 JavaScript engine but can be interacted with via a JavaScript interface. 
+    -  Buffers are particularly useful because JavaScript initially did not have a mechanism for dealing with binary data, which is **essential for tasks such as interacting with file systems, network communications, or handling binary protocols**.
+
+
+
+
+
+
+
+
+
+8. what are the core modules of node js?
+a. File systems.
+   Handles the file operations like reading, writing, and modifying files.
+   Example : fs.readFile(), fs.writeFile()
+
+b. Path(path)
+   Provides utilities for working with file and directory paths.
+   Example : path.join(),path.resolve()

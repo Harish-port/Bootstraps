@@ -33,7 +33,7 @@ Promise.allPolyfill = (promises) => {
   });
 };
 
-Promise.race([promise1, promise2, promise3])
+Promise.allPolyfill([promise1, promise2, promise3])
   .then((res) => {
     console.log(res, "result");
   })

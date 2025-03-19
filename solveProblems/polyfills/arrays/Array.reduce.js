@@ -2,7 +2,7 @@
 
 // arr.reduce((acc, currentValue, index, array) => {}, initialValue);
 //Note
-// 1. what if user fails to give the initialValue and in this case the accumulator takes first element of array as initial value and currentValue is assigned as the second element of the array
+// 1. what if user fails to give the initialValue and in this case the accumulator takes first element of array as initial value and currentValue is assigned as the second element of the array  
 Array.prototype.myReduce = function (cb, initialValue) {
   let accumulator = initialValue;
   for (let index = 0; index < this.length; index++) {

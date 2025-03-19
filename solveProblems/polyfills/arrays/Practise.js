@@ -1,15 +1,21 @@
-const arr = [ 23, 4, 5, 6, 7, 890];
+let car = {
+  name: "Ferrai",
+  color: "red"
+}
 
-Array.prototype.myArrayInclude = function (cb, initialValue) {
-  let accumulator = initialValue;
-  for (let index = 0; this.length; index++) {
-    accumulator = accumulator
-      ? cb(accumulator, this[index], index, this)
-      : this[index];
+function purchaseCar(currency, price) {
+  console.log(`I have purchased a ${car.color} - ${car.name} for ${price}${currency}`)
+}
+
+purchaseCar.call(car, "Rs", 10000000000)
+
+Function.prototype.myCall = function (context = {}, ...args) {
+  if (this !== "Function") {
+    throw new Error(this + "is not callable")
   }
-  return accumulator;
-};
-console.log(
-  arr.some((item) => item === 3),
-  "AWS"
-);
+
+  context.fn = this;
+  return function (...newArgs) {
+    return context.fn(...args, ...newArgs)
+  }
+}

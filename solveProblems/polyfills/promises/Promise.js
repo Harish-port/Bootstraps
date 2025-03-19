@@ -32,7 +32,7 @@ function PromisePolyFill(executor) {
       isCalled = true;
       onResolve(value);
     }
-    return this;
+    return this; // returnig the promise polyfill class that is PromisePolyFill
   };
 
   this.catch = function (callback) {
