@@ -1,23 +1,25 @@
-const promise1 = Promise.reject("promise 1 is fullfiled");
-const promise2 = Promise.resolve("promise 2 is fullfiled");
+const promise1 = Promise.reject("promise 1 is rejected");
+const promise2 = Promise.resolve("promise 2 is fulfilled");
 const promise3 = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("priomise 3 is fillfiled");
+    resolve("promise 3 is fulfilled");
   }, 1000);
 });
 
-Promise.allPolyfill = (promises) => {
-  return new Promise((resolve, reject) => {
+Promise.allSettledPolyfill = (promises) => {
+  return new Promise((resolve) => {
     let results = [];
-    if (!promises.length) {
+    let pending = promises.length;
+
+    if (pending === 0) {
       resolve(results);
       return;
     }
-    let pending = promises.length;
+
     promises.forEach((promise, idx) => {
       Promise.resolve(promise)
         .then((value) => {
-          results[idx] = { status: "fullfilled", value };
+          results[idx] = { status: "fulfilled", value };
         })
         .catch((reason) => {
           results[idx] = { status: "rejected", reason };
@@ -26,14 +28,13 @@ Promise.allPolyfill = (promises) => {
           pending--;
           if (pending === 0) {
             resolve(results);
-            return;
           }
         });
     });
   });
 };
 
-Promise.allPolyfill([promise1, promise2, promise3])
+Promise.allSettledPolyfill([promise1, promise2, promise3])
   .then((res) => {
     console.log(res, "result");
   })

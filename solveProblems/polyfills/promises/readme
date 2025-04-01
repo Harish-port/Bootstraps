@@ -16,7 +16,7 @@ Implementation to remember
 
 PromiseAllSettled
 
-1. 1. The PromiseAll takes iterable of promises as inputy and return an array of object where each object representing each promise.
+1. The PromiseAll takes iterable of promises as input and return an array of object where each object representing each promise.
 2. with each object having status key and reason key where status value would be either resolved or rejected and reason key will be the reason for rejection
 
 Implementation to remember
