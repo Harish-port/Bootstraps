@@ -29,3 +29,25 @@
 // 3. DOM-based XSS
 
 // The vulnerability is in the client-side JavaScript, not the server.
+
+
+// How to prevent it?
+
+// 1. Escape or Sanitize the user Input/output fields.
+// 2. Use Security libraries like DOMPurify for front end.
+// 3. Set proper Content Security Policy(CSP) Headers.
+// 4. Validate and encode the inputs on both frontend and backend.
+
+
+// for setting the CSP in Node js (because you can only set it in the client side)
+// app.use((req, res, next) => {
+//     res.setHeader("Content-Security-Policy",
+//       "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self';");
+//     next();
+//   });
+
+// This means:
+// 1. only load content from the same origin('self').
+// 2. Block all scripts, styles, and objects from external source.
+// 3. No embedding of the page in <ifrome>.
+
