@@ -1,7 +1,16 @@
-let arr = [1, 3, 4, 6, 7, 8];
-let res = arr.map((item) => item * 2)
-Array.prototype.myCustomMap = function (cb) {
-  
+const nums = [1, 2, 3, 4];
+
+
+Array.prototype.myCustomArrInclude = function (cb, initialValue) {
+    let accumulator = initialValue;
+    for (let index = 0; index < this.length; index++) {
+        accumulator = accumulator ? cb(this[index], index, this) : this[index];
+    }
+    return accumulator
 }
 
-console.log(arr.myCustomMap((ele) => ele > 3));
+
+const sum = nums.myCustomArrInclude((acc, currentValue, index, arr) => {
+    return acc + currentValue;
+}, 0)
+console.log(sum);

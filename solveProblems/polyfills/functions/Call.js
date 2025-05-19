@@ -21,7 +21,7 @@ function purchaseCar(currency, price) {
 // 2. assign this to context object since purchaseCar is function here
 // 3. so that any this keyowrd inside purchasecar will point to context object
 // 4. pass arguements to the function
-Note: Function.prototype.myCall = function (context = {}, ...args) {
+Function.prototype.myCall = function (context = {}, ...args) {
   if (typeof this !== "function") {
     throw new Error(this + "It's not callable");
   }

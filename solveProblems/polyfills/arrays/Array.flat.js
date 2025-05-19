@@ -22,6 +22,6 @@ Array.prototype.myFlat = function (depth = 1) {
   return flattenedArray;
 };
 
-const res = arr.myFlat(2);
+const res = arr.myFlat(1);
 
 console.log(res);

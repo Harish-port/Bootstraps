@@ -39,9 +39,36 @@ deep.name = 'vinay';
 
 // Use deep copy if you want to change nested values without affecting the original.
 
-2. What is prototype ?
-    In Js, every object has a special hidden property called[[Prototype]](or just __proto__ in older browsers), which links to another object.This 'other object' is called the prototype.
-  THe prototype is like a blueprint or a fallback object.If javascript can't find a property on an object, it looks up the chain to its proptotype.
+// 2. What is prototype ?
+// In JavaScript, every object has a hidden property called Prototype that either points to another object or is null. This prototype chain allows objects to inherit properties and methods from other objects. Essentially, prototypes are the foundation of inheritance in JavaScript.
   
-  3. what is prototypal Inheritance?
-  
+// 3. what is prototypal Inheritance?
+// This prototypal Inheritance allows objects to inherit properties and methods from other objects. Each object has an internal link to another object called its prototype. When trying to access a property or method of an object, JavaScript first looks for it directly on the object itself. If it's not found, it then searches the object's prototype, and if not found there, it continues up the prototype chain until it reaches the end or finds the property. 
+
+// How Does the Prototype Chain Work?
+// When you try to access a property or method on an object, JavaScript will:
+
+// Look for the property directly on the object.
+// If it doesn’t find it, it will check the object’s prototype.
+// If the property still isn’t found, it will traverse up the prototype chain until it reaches null.
+
+
+// 4. What is Event Delegation?
+// Event Delegation is a technique that simplifies the event handling by attaching event listners to the parent element instead of attaching individual listners to to each child element.
+// This parent element then handles the events that bubble up from from its children using event propogation.
+
+// 5. What is Event Bubbling?
+// When an event occurs on a child element, it propogates up the DOM tree to its parent and ancestor elements, this process is known as event bubbling.
+
+// 6. What is Event Propagation?
+// Event propogation describes the order in which event handlers are called when an event occurs on a nested element. It has 3 phases:Capturing, target, Bubbling.
+
+// Capturing phase: the event travels down the DOM tree from the window to the target element.Event listners attached in the capturing phase are triggered first.
+// Target phase: the event reaches the target element where it originated.Event listners attached directly to the target element are triggered first.
+// Bubbling phase:  When an event occurs on a child element, it propogates up the DOM tree to its parent and ancestor elements, this process is known as event bubbling.
+
+// Note: In order to specify the capturing phase when adding an event listner using the addEventListener method with the useCapture option set to true.
+
+// element.addEventListener('click', function(event) {
+//   // Event handler logic
+// }, true); // true indicates capturing phase

@@ -1,19 +1,21 @@
-//
-let car1 = {
-  color: "Red",
-  company: "Ferrari",
-};
-function purchaseCar(currency, price) {
-  console.log(`i have purchased ${this.color} ferrari for ${currency}`);
+let car = {
+  color: "red",
+  company: "ferrari"
 }
-Function.prototype.myCallPolyFill = function (context = {}, ...args) {
-  if (typeof this !== "function") {
-    throw new Error(this + "It is not callable");
-  }
- 
-  context.fn = this;
-  return function(...newArgs){
-    return context.fn(...args,...newArgs)
-  }
 
-};
+function purchaseCar(price, curreny) {
+  console.log(`I have purchased the ${this.color} - ${this.company} for ${curreny} ${price}`);
+}
+
+Function.prototype.myCustomBind = function (context = {}, ...args) {
+  if (typeof this !== 'function') {
+    throw new Error(this + "It's not callable")
+  }
+  context.fn = this;
+  return function (...newArgs) {
+    return context.fn(...newArgs, ...args)
+  }
+}
+
+
+purchaseCar.call(car, [1000, "Rs"])
