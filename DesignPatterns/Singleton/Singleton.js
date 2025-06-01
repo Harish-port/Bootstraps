@@ -6,6 +6,7 @@
 // - It is implemented by creating a class with a method that creates a new instance of the class if one doesn't exist.
 // - If an instance already exists, it simply returns a reference to that object.
 // // Traditional way
+  
 var SingleTon = (function () {
   var instance;
   function createInstance() {
