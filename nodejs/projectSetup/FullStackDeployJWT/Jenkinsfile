@@ -8,19 +8,19 @@ pipeline {
   stages {
     stage('Clone Code') {
       steps {
-        git 'https://github.com/Harish-port/Bootstraps.git' // Replace with your repo URL
+        git 'https://github.com/Harish-port/Bootstraps.git'
       }
     }
 
     stage('Build Frontend') {
       steps {
-        sh 'docker build -t harish46/frontend ./frontend'
+        sh 'docker build -t harish46/frontend ./nodejs/projectSetup/FullStackDeployJWT/frontend'
       }
     }
 
     stage('Build Backend') {
       steps {
-        sh 'docker build -t harish46/backend ./backend'
+        sh 'docker build -t harish46/backend ./nodejs/projectSetup/FullStackDeployJWT/backend'
       }
     }
 
