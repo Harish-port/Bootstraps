@@ -75,6 +75,7 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ error: "Login failed" });
   }
 });
+
 // When the access token expires, the user can send their refresh token to get a new access token./
 router.post("/refresh-token", async (req, res) => {
   const { refreshToken } = req.body;
@@ -93,7 +94,7 @@ router.post("/refresh-token", async (req, res) => {
       { userId: decoded.userId },
       process.env.JWT_SECRET,
       { expiresIn: "15m" }
-    );
+    );  
     res.json({ accessToken: newAccessToken });
   } catch (error) {
     console.error("Refresh Token Error:", error);

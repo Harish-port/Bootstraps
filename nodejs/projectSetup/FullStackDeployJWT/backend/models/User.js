@@ -1,9 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const UserSchema = new mongoose({
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
-})
+const userSchema = new mongoose.Schema({
+    username: { type: String, unique: true, required: true },
+    password: { type: String, required: true },
+});
 
-const User = mongoose.model("User", UserSchema)
-module.exports = { User };
+const refreshTokenSchema = new mongoose.Schema({
+    token: { type: String, required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    createdAt: { type: Date, default: Date.now, expires: "7d" },
+});
+
+const User = mongoose.model("User", userSchema);
+const RefreshToken = mongoose.model("RefreshToken", refreshTokenSchema);
+
+module.exports = { User, RefreshToken };
