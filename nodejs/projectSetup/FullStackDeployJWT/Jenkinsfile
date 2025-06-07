@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone Code') {
       steps {
-        git 'https://github.com/Harish-port/Bootstraps/tree/main/nodejs/projectSetup/FullStackDeployJWT' // Replace with your repo URL
+        git 'https://github.com/Harish-port/Bootstraps.git' // Replace with your repo URL
       }
     }
 
