@@ -1,0 +1,42 @@
+pipeline {
+  agent any
+
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds-id')
+  }
+
+  stages {
+    stage('Clone Code') {
+      steps {
+        git 'https://github.com/Harish-port/Bootstraps/tree/main/nodejs/projectSetup/FullStackDeployJWT' // Replace with your repo URL
+      }
+    }
+
+    stage('Build Frontend') {
+      steps {
+        sh 'docker build -t harish46/frontend ./frontend'
+      }
+    }
+
+    stage('Build Backend') {
+      steps {
+        sh 'docker build -t harish46/backend ./backend'
+      }
+    }
+
+    stage('Push Docker Images') {
+      steps {
+        withDockerRegistry([credentialsId: 'dockerhub-creds-id', url: '']) {
+          sh 'docker push harish46/frontend'
+          sh 'docker push harish46/backend'
+        }
+      }
+    }
+
+    stage('Deploy to Kubernetes') {
+      steps {
+        sh 'kubectl apply -f k8s/'
+      }
+    }
+  }
+}
