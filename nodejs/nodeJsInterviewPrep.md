@@ -15,9 +15,9 @@ I/o Operations refer to any task that involves reading or writing data to extern
  .File system
  .database
  .network requests
-
+                                                                                                                                                  
 5. Is Node.js Single-Threaded? If Yes, How? 🚀
-YEs Node js is single threaded meaning it process js code on a single main thread.However it is highly scalable because of its event driven approach and non-blocking architecture.
+Yes Node js is single threaded meaning it process js code on a single main thread.However it is highly scalable because of its event driven approach and non-blocking architecture.
 
 How does Nodejs work as single threaded system?
 1. Event loop mechanism
@@ -49,14 +49,6 @@ Uses callbacks, Promises, and async/await to handle async operations.
     -  Buffer is a **built-in global class** that **provides a way to work with binary data directly**. 
     -  It represents a chunk of memory allocated outside of the V8 JavaScript engine but can be interacted with via a JavaScript interface. 
     -  Buffers are particularly useful because JavaScript initially did not have a mechanism for dealing with binary data, which is **essential for tasks such as interacting with file systems, network communications, or handling binary protocols**.
-
-
-
-
-
-
-
-
 
 8. what are the core modules of node js?
 a. File systems.
