@@ -249,4 +249,5 @@ db.users.createIndex({ email: 1 }) // 1 = ascending, -1 = descending
 Fast data retrieval	Speeds up SELECT queries significantly
 
 Downsides
-Takes extra space	Indexes consume additional disk space
+Takes extra space	Indexes consume additional disk space.
+

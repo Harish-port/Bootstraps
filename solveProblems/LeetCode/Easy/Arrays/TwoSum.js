@@ -20,6 +20,7 @@ const twoSum = (nums, target) => {
   }
   return [];
 };
+ 
 
 console.log(twoSum([1, 2, 3, 4, 2], 7));
 

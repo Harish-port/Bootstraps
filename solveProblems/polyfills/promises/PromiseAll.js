@@ -1,5 +1,7 @@
 // Promise.All in js
 
+// Waits for all the promises to resolve or for any to reject
+
 function importantAction(userName) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

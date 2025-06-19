@@ -17,7 +17,6 @@
 // 5 What is MongoDB Compass?
 // MongoDB Compass is a GUI (Graphical User Interface) tool provided by MongoDB to visually interact with your database. It allows users to explore, query, and manage MongoDB data without using the command line.
 
-
 // 5. what is Collection in MongoDB>?
 // In MongoDB, a collection is a group of documents (records) that are stored together. It is similar to a table in relational databases, but unlike tables, collections do not enforce a strict schema. This means documents within the same collection can have different structures.
 

@@ -45,7 +45,6 @@ function longestConsecutive(nums) {
       maxLength = Math.max(maxLength, currentLength);
     }
   }
-
   return maxLength;
 }
 

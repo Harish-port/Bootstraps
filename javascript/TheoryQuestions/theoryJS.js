@@ -72,3 +72,6 @@ deep.name = 'vinay';
 // element.addEventListener('click', function(event) {
 //   // Event handler logic
 // }, true); // true indicates capturing phase
+
+// 7. what is hoisting?
+// Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope (either the global scope or a function scope) during the compile phase, before the code is executed.

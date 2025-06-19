@@ -8,6 +8,7 @@ function PromisePolyFill(executor) {
     value;
 
   function resolve(val) {
+    // Note: for ayschrounous operation the onResolve is a fyunction and for synchoronous opertaion it is a varialbe
     //here onResolve is a callback function for asychronous operation and for synchroous its just a val here for examample its 2 and incase of just a resolve(2) it will throw error and we need handle it that is check if onResolve is a function and if it is then resolve it and if not go to then method and resolve because the control will go to the then method
     isFullfilled = true;
     value = val;
