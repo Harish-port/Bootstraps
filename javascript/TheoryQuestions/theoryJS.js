@@ -9,7 +9,12 @@ const original = {
         city: "Bangalore"
     }
 }
-
+const onb = {
+    name:"sdlakshd",
+    address:{
+        city:"basbd"
+    }
+}
 const shallow = { ...original }
 shallow.name = 'vinay';
 shallow.address.city = 'india';
@@ -52,7 +57,6 @@ deep.name = 'vinay';
 // If it doesn’t find it, it will check the object’s prototype.
 // If the property still isn’t found, it will traverse up the prototype chain until it reaches null.
 
-
 // 4. What is Event Delegation?
 // Event Delegation is a technique that simplifies the event handling by attaching event listners to the parent element instead of attaching individual listners to to each child element.
 // This parent element then handles the events that bubble up from from its children using event propogation.
@@ -75,3 +79,5 @@ deep.name = 'vinay';
 
 // 7. what is hoisting?
 // Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope (either the global scope or a function scope) during the compile phase, before the code is executed.
+
+// 8. this keyword

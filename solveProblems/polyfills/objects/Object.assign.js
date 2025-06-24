@@ -18,15 +18,14 @@
 // -   In addition to string keys, retrieve and merge properties identified by symbols using `Object.getOwnPropertySymbols(source)`.
 
 // ```js
+
 function objectAssign(target, ...sources) {
   // Check if the target is valid (not null or undefined)
   if (target == null) {
     throw new Error("Target cannot be null or undefined");
   }
-
   // Convert the target to an object
   target = Object(target);
-
   // Iterate through each source object provided as arguments
   sources.forEach((source) => {
     // If the source is null or undefined, skip to the next source
@@ -36,7 +35,6 @@ function objectAssign(target, ...sources) {
     mergeProperties(Object.keys(source), source);
     mergeProperties(Object.getOwnPropertySymbols(source), source);
   });
-
   function mergeProperties(keys, currSource) {
     keys.forEach((key) => {
       // Assign the value from the current source to the target object using the key
@@ -48,7 +46,6 @@ function objectAssign(target, ...sources) {
       }
     });
   }
-
   // Return the updated target object
   return target;
 }

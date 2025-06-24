@@ -1,36 +1,30 @@
-const promise1 = Promise.reject("promise 1 is rejected");
-const promise2 = Promise.resolve("promise 2 is fulfilled");
-const promise3 = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve("promise 3 is fulfilled");
-  }, 1000);
-});
+const promise1 = new Promise((resolve, reject) => setTimeout(reject, 500, "first"));
+const promise2 = new Promise((resolve, reject) => setTimeout(reject, 300, "second"));
+const promise3 = new Promise((resolve, reject) =>
+  setTimeout(reject, 200, "error")
+);
 
-Promise.allSettledPolyfill = (promises) => {
+Promise.allPolyfill = (promises) => {
   return new Promise((resolve, reject) => {
-    let results = [];
-    let pending = promises.length;
-    if (!promises.length) {
-      resolve(results);
-      return;
+    let errors = [];
+    let rejectedCount = 0;
+    let totalPromises = promises.length;
+    if (totalPromises === 0) {
+      return reject(new AggregateError(errors, "All promises were rejected"));
     }
-    promises.forEach((promise, idx) => {
-      Promise.resolve(promise).then((value) => {
-        results[idx] = { status: "fullfilled", value }
-      }).catch((reason) => {
-        results[idx] = { status: "rejected", reason }
+    promises.forEach((promise) => {
+      Promise.resolve(promise).then(resolve).catch((error, idx) => {
+        errors[idx] = error;
+        rejectedCount++;
+        if (totalPromises === rejectedCount) {
+          return reject(new AggregateError(errors, "All promises were rejected"));
+        }
       })
-        .finally(() => {
-          pending--;
-          if (pending === 0) {
-            resolve(results);
-          }
-        });
     })
   })
 };
 
-Promise.allSettledPolyfill([promise1, promise2, promise3])
+Promise.allPolyfill([promise1, promise2, promise3])
   .then((res) => {
     console.log(res, "result");
   })
