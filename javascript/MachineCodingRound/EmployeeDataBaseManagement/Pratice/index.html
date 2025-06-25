@@ -16,15 +16,69 @@
       <div class="employees__names">
         <span class="employess__names--title"> Employee List</span>
         <hr />
-        <div class="employees_names--list">
-          
-        </div>
+        <div class="employees_names--list"></div>
       </div>
       <div class="employees__single">
         <span class="employees__single--title"> Employee Information </span>
         <hr />
         <div class="employees_single--list"></div>
       </div>
+    </div>
+    <div class="addEmployee">
+      <form class="employees-form">
+        <h5>Add a new Employee</h5>
+        <div class="employee-names">
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            required
+            placeholder="First Name"
+          />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            required
+            placeholder="Last Name"
+          />
+        </div>
+        <!-- <input type="text" name="imageUrl" placeholder="img url optional" /> -->
+        <input
+          type="email"
+          required
+          name="email"
+          id="email"
+          placeholder="Email"
+        />
+        <input
+          type="number"
+          required
+          name="contactNumber"
+          id="contactNumber"
+          placeholder="Contact"
+        />
+        <input
+          type="number"
+          required
+          name="salary"
+          id="salary"
+          placeholder="Salary"
+        />
+        <input
+          type="text"
+          required
+          name="address"
+          id="address"
+          placeholder="Address"
+        />
+        <input type="date" required name="dob" id="dob" placeholder="Date" />
+        <input
+          type="submit"
+          class="add-employee-create-submit"
+          value="Submit"
+        />
+      </form>
     </div>
     <link rel="stylesheet" href="style.css" />
     <script src="./script.js"></script>
