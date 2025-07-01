@@ -31,3 +31,6 @@ const flattenedUser = (obj, prefix) => {
 };
 
 console.log(flattenedUser(user, "user"));
+
+
+

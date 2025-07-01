@@ -1,0 +1,22 @@
+1. what is GitHub Actions?
+GitHub Actions is a CI/CD toll built into GitHub that allows you to automate workflows like testing, building and deploying code based on GitHub events such as push, pull requests or releases.
+
+2. Core Concepts (TL;DR):
+Workflow – The automation file written in YAML (.github/workflows/*.yml).
+
+Job – A group of steps run in the same environment (can run in parallel with other jobs).
+
+Step – A single task (e.g., npm install, npm test) inside a job.
+
+Action – A reusable function or plugin (e.g., actions/checkout, setup-node).
+
+Runner – The machine (GitHub-hosted or self-hosted) where jobs execute.
+
+Secret – Encrypted environment variables for sensitive data (e.g., API keys).
+
+Event Trigger – What starts the workflow (e.g., push, pull_request, workflow_dispatch).
+
+Matrix – Run the same job in multiple environments (e.g., Node 14, 16, 18).
+
+Caching – Speed up workflows by reusing dependencies (like node_modules).
+
