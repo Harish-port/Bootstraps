@@ -101,5 +101,52 @@
 // 🔧 Dev Tools	Basic debugging	Powerful Redux DevTools support
 // 🔁 Async Handling	Requires useEffect or libraries	Built-in support with middleware (e.g. thunk, saga)
 
+// 10. what is controlled and uncontrolled component ?
+// controlled components are the components whose state and behaviors are managed by React components using states while the uncontrolled components manage their own state and control their behaviors with the help of DOM.
+//  When to Use What?
 
-// 10. what is controlled and uncontrolled component
+
+// ✅ Use Controlled when:
+// You need to validate user input
+
+// Need to conditionally enable/disable buttons
+
+// Want to update state in real-time (e.g., search box)
+
+// Working with form libraries like Formik or React Hook Form (behind the scenes, often controlled)
+import { useState } from 'react';
+
+function ControlledInput() {
+    // The component's form data is controlled by React state.
+    const [value, setValue] = useState('');
+
+    return (
+        <input
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Controlled"
+        />
+    );
+}
+// ✅ Use Uncontrolled when:
+// You're building quick forms or simple file inputs
+
+// You want performance (large forms, infrequent access)
+
+// No need for real-time state or validationimport { useRef } from 'react';
+
+function UncontrolledInput() {
+    // The component's form data is stored in the DOM, and accessed using ref.
+    const inputRef = useRef();
+
+    const handleClick = () => {
+        alert(inputRef.current.value);
+    };
+
+    return (
+        <>
+            <input ref={inputRef} placeholder="Uncontrolled" />
+            <button onClick={handleClick}>Get Value</button>
+        </>
+    );
+} 

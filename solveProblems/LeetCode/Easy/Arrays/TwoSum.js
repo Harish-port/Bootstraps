@@ -11,7 +11,7 @@
 
 const twoSum = (nums, target) => {
   const memory = new Map();
-  for (let i = 0; i < nums.length - 1; i++) {
+  for (let i = 0; i < nums.length; i++) {
     const complement = target - nums[i];
     if (memory.has(complement)) {
       return [memory.get(complement), i];
@@ -20,7 +20,7 @@ const twoSum = (nums, target) => {
   }
   return [];
 };
- 
+
 
 console.log(twoSum([1, 2, 3, 4, 2], 7));
 

@@ -12,24 +12,26 @@ const user = {
 };
 
 const flattenedUser = (obj, prefix) => {
-  let flattenedObj = {};
-  for (let key in obj) {
-    if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
-      flattenedObj = {
-        ...flattenedObj,
-        ...flattenedUser(
-          obj[key],
-          `${prefix}${key.charAt(0).toUpperCase() + key.slice(1)}`
-        ),
-      };
+  let falttenedObj = {};
+  for (let key of obj) {
+    if (obj[key] === 'object' && (!Array.isArray(obj[key]))) {
+      falttenedObj = {
+        ...flattenObj,
+        ...flattenedUser(obj[key], `${prefix}${key.chart(0).toUpperCase() + key.slice(1)}`)
+      }
     } else {
-      flattenedObj[`${prefix}${key.charAt(0).toUpperCase() + key.slice(1)}`] =
-        obj[key];
+      falttenedObj[`${prefix}${key}`] = obj[key]
     }
   }
-  return flattenedObj;
-};
-
+  return falttenedObj;
+}
+// // output 2
+// {
+//   userName: "Rowdy Coders",
+//   userAddressPrimaryHouse: "109",
+//   userAddressPrimaryStreetMain: 21,
+//   userAddressPrimaryStreetCross: ["32", "1"],
+//   }
 console.log(flattenedUser(user, "user"));
 
 

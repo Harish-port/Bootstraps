@@ -61,6 +61,27 @@ const outputResult = (items) => {
   })
   return output
 }
+// function test(items) {
+//     let output = {};
+
+//     items.forEach((item) => {
+//         if (output[item.key]) {
+//             // Key already exists
+//             if (Array.isArray(output[item.key])) {
+//                 // Already an array → just push the new value
+//                 output[item.key].push(item.data);
+//             } else {
+//                 // Convert single value to array with both values
+//                 output[item.key] = [output[item.key], item.data];
+//             }
+//         } else {
+//             // First time seeing this key → assign directly
+//             output[item.key] = item.data;
+//         }
+//     });
+
+//     return output;
+// }
 
 let res = 
 outputResult(items);
