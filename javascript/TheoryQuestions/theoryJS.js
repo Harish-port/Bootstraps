@@ -81,3 +81,19 @@ deep.name = 'vinay';
 // Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope (either the global scope or a function scope) during the compile phase, before the code is executed.
 
 // 8. this keyword
+
+
+// 9. Event Loop?
+// "JavaScript is single-threaded, so it can only execute one task at a time using the call stack. But to handle asynchronous operations like timers, API calls, or DOM events without blocking the UI, JavaScript uses something called the Event Loop.
+// The Event Loop works with three main parts:
+// The Call Stack, where code runs.
+// The Web APIs, provided by the browser to handle async tasks like setTimeout, fetch, etc.
+// The Callback Queue, where the results of async operations are queued.
+// The Event Loop keeps checking if the call stack is empty. If it is, it takes the first callback from the queue and pushes it to the call stack for execution.
+// This mechanism ensures non-blocking behavior even though JavaScript runs on a single thread."
+
+// When asynchronous tasks complete (like a resolved Promise or a setTimeout), their callbacks are scheduled in different queues:
+// 🧩 Microtasks Queue → e.g. Promises, queueMicrotask(), MutationObserver
+// ⏰ Macrotasks Queue → e.g. setTimeout, setInterval, setImmediate, requestAnimationFrame
+
+// Task queue = Macrotask queue = Callback queue(for understanding all are the same)
