@@ -1,7 +1,7 @@
 
  let arra = [1, 3, 5, 6, 12, 15, 23, 20];
 
-function countNegatives(arr) {
+function secondLargest(arr) {
     let firstLargest = -Infinity;
     let secondLargest = -Infinity;
     for (let i = 0; i < arr.length; i++) {
@@ -15,4 +15,4 @@ function countNegatives(arr) {
     return secondLargest
 }
 
-console.log(countNegatives(arra))
+console.log(secondLargest(arra));
