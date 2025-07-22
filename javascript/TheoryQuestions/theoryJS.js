@@ -97,3 +97,42 @@ deep.name = 'vinay';
 // ⏰ Macrotasks Queue → e.g. setTimeout, setInterval, setImmediate, requestAnimationFrame
 
 // Task queue = Macrotask queue = Callback queue(for understanding all are the same)
+
+
+10. **`Event Delegation`: What is event delegation and why is it useful? Can you provide an example?**
+
+<details>
+<summary>View Answer</summary>
+- Is a technique where you delegate the handling of events to a common parent element rather than assigning event handlers to individual elements.
+
+- based on the event bubbling principle, where an event propagates up from the target element through its ancestors in the DOM hierarchy.
+
+##### Why it is useful?
+
+**1. Efficiency**: Instead of attaching multiple event listeners you can attach a single event listener. Reduces overhead of managing multiple event listeners.
+
+**2. Dynamic elements**: If elements are added or removed dynamically you don't have to attach or remove event listeners for each element. The parent event listenere will hanlde events for all current and future child elements.
+
+**3. Less memory consumption**: Less event listeners means less memory consumption which can lead to performance improvements.
+    
+```js
+// Example:
+
+<ul id='itemList'>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+
+```js
+// With event delegation:
+
+const itemList = document.getElementById('itemlist');
+itemList.addEventListener('click', function (event) {
+  if (event.target.tagName === 'LI') {
+    console.log(event.target.textContent);
+  }
+})
+
+11. Event 
