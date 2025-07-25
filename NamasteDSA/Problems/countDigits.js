@@ -13,3 +13,4 @@ function countDigits(n) {
 console.log(countDigits(n));
 
 
+/// n/10 removes last digit from the number and do until its 0 and then return the count

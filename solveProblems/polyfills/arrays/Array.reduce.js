@@ -19,3 +19,27 @@ const sum = nums.myReduce((acc, curr, i, arr) => {
   return acc + curr;
 }, 0);
 console.log(sum, "Sum");
+
+
+// most accurate versions
+
+// if (!Array.prototype.myReduce) {
+//     Array.prototype.myReduce = function (cb, initialValue) {
+//         let accumulator;
+//         let startIndex;
+
+//         if (initialValue !== undefined) {
+//             accumulator = initialValue;
+//             startIndex = 0;
+//         } else {
+//             accumulator = this[0];
+//             startIndex = 1;
+//         }
+
+//         for (let index = startIndex; index < this.length; index++) {
+//             accumulator = cb(accumulator, this[index], index, this);
+//         }
+
+//         return accumulator;
+//     };
+// }

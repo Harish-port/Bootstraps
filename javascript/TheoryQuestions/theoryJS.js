@@ -99,40 +99,55 @@ deep.name = 'vinay';
 // Task queue = Macrotask queue = Callback queue(for understanding all are the same)
 
 
-10. **`Event Delegation`: What is event delegation and why is it useful? Can you provide an example?**
+// 10. **`Event Delegation`: What is event delegation and why is it useful? Can you provide an example?**
 
-<details>
-<summary>View Answer</summary>
-- Is a technique where you delegate the handling of events to a common parent element rather than assigning event handlers to individual elements.
+// <details>
+// <summary>View Answer</summary>
+// - Is a technique where you delegate the handling of events to a common parent element rather than assigning event handlers to individual elements.
 
-- based on the event bubbling principle, where an event propagates up from the target element through its ancestors in the DOM hierarchy.
+// - based on the event bubbling principle, where an event propagates up from the target element through its ancestors in the DOM hierarchy.
 
-##### Why it is useful?
+// ##### Why it is useful?
 
-**1. Efficiency**: Instead of attaching multiple event listeners you can attach a single event listener. Reduces overhead of managing multiple event listeners.
+// **1. Efficiency**: Instead of attaching multiple event listeners you can attach a single event listener. Reduces overhead of managing multiple event listeners.
 
-**2. Dynamic elements**: If elements are added or removed dynamically you don't have to attach or remove event listeners for each element. The parent event listenere will hanlde events for all current and future child elements.
+// **2. Dynamic elements**: If elements are added or removed dynamically you don't have to attach or remove event listeners for each element. The parent event listenere will hanlde events for all current and future child elements.
 
-**3. Less memory consumption**: Less event listeners means less memory consumption which can lead to performance improvements.
+// **3. Less memory consumption**: Less event listeners means less memory consumption which can lead to performance improvements.
     
-```js
-// Example:
+// ```js
+// // Example:
 
-<ul id='itemList'>
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
-</ul>
-```
+// <ul id='itemList'>
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+//   <li>Item 3</li>
+// </ul>
+// ```
 
-```js
-// With event delegation:
+// ```js
+// // With event delegation:
 
-const itemList = document.getElementById('itemlist');
-itemList.addEventListener('click', function (event) {
-  if (event.target.tagName === 'LI') {
-    console.log(event.target.textContent);
-  }
-})
+// const itemList = document.getElementById('itemlist');
+// itemList.addEventListener('click', function (event) {
+//   if (event.target.tagName === 'LI') {
+//     console.log(event.target.textContent);
+//   }
+// })
 
-11. Event 
+// 11. Event propagation
+// Event propagation refers to the way events flow through the DOM when an event occurs. There are two main phases of event propagation:
+// 1. **Capturing Phase**: The event starts from the root of the DOM tree and travels down to the target element that initiated the event.
+// 2. **Bubbling Phase**: After reaching the target element, the event bubbles back up to the root of the DOM tree.   
+// You can control the propagation of events using methods like `stopPropagation()` to prevent further propagation in either phase, or `stopImmediatePropagation()` to stop the event from being handled by any other listeners on the same element.    
+// exmaple of event propagation:
+// ```js
+// document.getElementById('parent').addEventListener('click', function() {
+//   console.log('Parent clicked');
+// });        
+// document.getElementById('child').addEventListener('click', function(event) {
+//   console.log('Child clicked');
+//   event.stopPropagation(); // Prevents the event from bubbling up to the parent
+// });  
+// ```
+ 
