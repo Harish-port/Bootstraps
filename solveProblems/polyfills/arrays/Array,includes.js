@@ -40,4 +40,26 @@ const arrayLike = {
 console.log(Array.prototype.myPolyIncludes.call(arrayLike, 2));
 // true
 console.log(Array.prototype.myPolyIncludes.call(arrayLike, 1));
-console.log(arr.myPolyIncludes(3), "<<<"); //true
+console.log(arr.myPolyIncludes(3), "<<<"); //true|
+
+
+
+//covers all edge casess
+
+// if (!Array.prototype.customArrayIncludes) {
+//     Array.prototype.customArrayIncludes = function (searchElement, fromIndex = 0) {
+//         const len = this.length;
+//         if (len === 0) return false;
+
+//         let start = fromIndex >= 0 ? fromIndex : Math.max(len + fromIndex, 0);
+
+//         for (let i = start; i < len; i++) {
+//             const current = this[i];
+//             if (current === searchElement || (Number.isNaN(current) && Number.isNaN(searchElement))) {
+//                 return true;
+//             }
+//         }
+//         return false;
+//     };
+// }
+

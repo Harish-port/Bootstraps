@@ -29,7 +29,7 @@ console.log(original, "original"); //{ name: 'Harish', address: { city: 'india' 
 
 // Deep Copy: Copies everything, including nested objects and arrays, creates independent clones of the orignal object / array
 const deep = JSON.parse(JSON.stringify(original));
-
+ 
 deep.address.city = "chennai";
 deep.name = 'vinay';
 

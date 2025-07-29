@@ -9,9 +9,10 @@ if (!Array.prototype.customEvery) {
         if (typeof callback !== 'function') {
             throw new TypeError(callback + "is not a fucntuion");
         }
-        var array = Object(this);
+        var array = Object(this); //to handle array like objects
         var len = array.length;
         for (let i = 0; i < len; i++) {
+            // If any callback result is false, exit early.
             if (i in array && !callback.call(thisArgs, array[i], i, array)) {
                 return false
             }
@@ -20,7 +21,7 @@ if (!Array.prototype.customEvery) {
     }
 }
 
-var fruits = ["mango", "mngo", "mango", "mango"];
+var fruits = ["mango", "mango", "mango", "mango"];
 
 var containsMango = fruits.customEvery((fruit) => {
     return fruit === "mango"

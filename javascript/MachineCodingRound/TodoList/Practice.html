@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li.completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Practice Todo List</h1>
+    <input type="text" id="todoText" />
+    <button onclick="addTodo()">Add</button>
+    <ul id="todoList"></ul>
+    <script>
+      const inputText = document.getElementById("todoText");
+      const displayList = document.getElementById("todoList");
+      function addTodo() {
+        let taskText = inputText.value.trim();
+        if (taskText === "") return;
+        const li = document.createElement("li");
+        const span1 = document.createElement("span");
+        span1.textContent = taskText;
+        span1.onclick = () => {
+          li.classList.toggle("completed");
+        };
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "X";
+        delBtn.onclick = () => {
+          li.remove();
+        };
+        li.appendChild(span1);
+        li.appendChild(delBtn);
+        displayList.appendChild(li);
+        inputText.value = "";
+      }
+      inputText.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          addTodo();
+        }
+      });
+    </script>
+  </body>
+</html>
