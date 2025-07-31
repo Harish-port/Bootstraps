@@ -16,10 +16,14 @@ const onb = {
     }
 }
 const shallow = { ...original }
+const shallow1 = Object.assign({}, original);
 shallow.name = 'vinay';
 shallow.address.city = 'india';
+shallow1.name = 'vinay';
+shallow1.address.city = 'india';
 
 console.log(shallow, "shallow"); //{ name: 'vinay', address: { city: 'india' } } 
+console.log(shallow1, "shallow1"); //{ name: 'vinay', address: { city: 'india' } } 
 console.log(original, "original"); //{ name: 'Harish', address: { city: 'india' } }
 
 // Shallow Copy Methods:
