@@ -5,7 +5,6 @@
 // d)- Event handlers - try/catch inside handler.
 // e)- Production logging - Error monitoring tool such as Sentry.io.
 
-
 // 2.What is ESlint?
 // ESlint is a Javascript/Typescript linter - a tool that analyzes   your code to find and fix problems.
 // 📌 Why Use ESLint?
@@ -104,8 +103,6 @@
 // 10. what is controlled and uncontrolled component ?
 // controlled components are the components whose state and behaviors are managed by React components using states while the uncontrolled components manage their own state and control their behaviors with the help of DOM.
 //  When to Use What?
-
-
 // ✅ Use Controlled when:
 // You need to validate user input
 
